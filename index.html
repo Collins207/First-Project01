@@ -40,6 +40,24 @@
             background: #f4f4f4;
             border-color: #999;
             text-align: center;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
         }
 
         /* الفوتر */
@@ -54,7 +72,7 @@
         .container {
             display: flex;
             flex-wrap: wrap;
-            /* يجعل العناصر تلتف عند الحاجة */
+            justify-content: space-between;
         }
 
         /* القسم الرئيسي */
@@ -143,8 +161,25 @@
                 text-align: center;
             }
 
-            nav {
-                width: 100%;
+            nav ul {
+                flex-direction: column;
+                display: none;
+                background: #f4f4f4;
+                padding: 10px;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            nav button {
+                display: block;
+                background: #007BFF;
+                color: white;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                margin-bottom: 5px;
             }
 
             form {
@@ -155,6 +190,27 @@
             input,
             textarea {
                 width: 100%;
+            }
+
+            /* جعل الشريط الجانبي يظهر أسفل المقالات */
+            aside {
+                order: 2;
+                width: 100%;
+            }
+
+            /* تحسين ترتيب العناصر */
+            main {
+                order: 1;
+                width: 100%;
+            }
+
+            section {
+                order: 3;
+                width: 100%;
+            }
+
+            footer {
+                order: 4;
             }
         }
     </style>
