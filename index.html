@@ -1,22 +1,126 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8"/>
-    <title>My First Project</title>
-    <meta name="description" content="Carrying out my first project"/>
-    <!-- This is my first comment -->
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هيكل موقع دلالي</title>
     <style>
-        body {background-color: aquamarine;}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header,
+        nav,
+        main,
+        section,
+        article,
+        aside,
+        footer {
+            padding: 20px;
+            margin: 10px;
+            border: 2px solid black;
+        }
+
+        header {
+            background: #0073e6;
+            color: white;
+            text-align: center;
+            border-color: #004a99;
+        }
+
+        nav {
+            background: #f4f4f4;
+            border-color: #999;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            border-color: #555;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        main {
+            flex: 3;
+            background: #fff;
+            border-color: #ccc;
+        }
+
+        aside {
+            flex: 1;
+            background: #f9f9f9;
+            border-color: #aaa;
+        }
+
+        section {
+            background: #eef;
+            border-color: #88a;
+        }
+
+        article {
+            background: #dde;
+            border-color: #667;
+        }
     </style>
-    <script></script>
-    <link rel="stylesheet" href="">
-  </head>
-  <body>
-    <h1>First Project</h1>
-      <h2>Chapter one inside project</h2>
-        <h3>Project name insde chapter</h3>
-    <p>This is my first project, Welcome..</p> 
-    <p>Testing..</p> 
-    <p>PLEASEEE</p> 
-  </body>
+</head>
+
+<body>
+
+    <header>
+        <h1>موقعي الدلالي</h1>
+        <p>هذا هو رأس الصفحة</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">عن الموقع</a></li>
+            <li><a href="#">الخدمات</a></li>
+            <li><a href="#">اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <main>
+            <section>
+                <h2>قسم المقالات</h2>
+                <article>
+                    <h3>مقال 1</h3>
+                    <p>هذا هو أول مقال في الموقع.</p>
+                </article>
+                <article>
+                    <h3>مقال 2</h3>
+                    <p>هذا هو مقال آخر يمكن قراءته بشكل مستقل.</p>
+                </article>
+            </section>
+
+            <section>
+                <h2>أخبار</h2>
+                <article>
+                    <h3>خبر جديد</h3>
+                    <p>هذا هو آخر الأخبار في الموقع.</p>
+                </article>
+            </section>
+        </main>
+
+        <aside>
+            <h2>الشريط الجانبي</h2>
+            <p>هنا تجد معلومات إضافية مثل الروابط والإعلانات.</p>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 جميع الحقوق محفوظة</p>
+    </footer>
+
+</body>
+
 </html>
