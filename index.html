@@ -6,38 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>هيكل موقع دلالي</title>
     <style>
-        @media (max-width: 768px) {
-
-            header,
-            nav,
-            main,
-            section,
-            article,
-            aside,
-            footer {
-                padding: 10px;
-                /* تقليل الحواف لتناسب الشاشة */
-                margin: 5px;
-            }
-
-            .container {
-                display: flex;
-                flex-direction: column;
-                /* جعل العناصر تصطف عموديًا على الشاشات الصغيرة */
-            }
-
-            nav {
-                text-align: center;
-                /* محاذاة القائمة وسط الصفحة */
-            }
-
-            form {
-                width: 90%;
-                /* تكبير عرض النموذج على الشاشات الصغيرة */
-                margin: auto;
-            }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
+        /* العناصر الرئيسية */
         header,
         nav,
         main,
@@ -48,8 +23,11 @@
             padding: 20px;
             margin: 10px;
             border: 2px solid black;
+            max-width: 100%;
+            overflow: hidden;
         }
 
+        /* الهيدر */
         header {
             background: #0073e6;
             color: white;
@@ -57,11 +35,14 @@
             border-color: #004a99;
         }
 
+        /* القائمة */
         nav {
             background: #f4f4f4;
             border-color: #999;
+            text-align: center;
         }
 
+        /* الفوتر */
         footer {
             background: #222;
             color: white;
@@ -69,22 +50,28 @@
             border-color: #555;
         }
 
+        /* الحاوية الرئيسية */
         .container {
             display: flex;
+            flex-wrap: wrap;
+            /* يجعل العناصر تلتف عند الحاجة */
         }
 
+        /* القسم الرئيسي */
         main {
             flex: 3;
             background: #fff;
             border-color: #ccc;
         }
 
+        /* الشريط الجانبي */
         aside {
             flex: 1;
             background: #f9f9f9;
             border-color: #aaa;
         }
 
+        /* الأقسام */
         section {
             background: #eef;
             border-color: #88a;
@@ -95,19 +82,20 @@
             border-color: #667;
         }
 
+        /* تحسين استجابة النموذج */
         form {
             background-color: #f0f0ff;
-            /* لون خلفية خفيف */
             padding: 20px;
             border: 1px solid #999;
             border-radius: 8px;
             width: 50%;
             margin: auto;
+            max-width: 500px;
         }
 
+        /* تحسين الحقول */
         label {
             display: block;
-            /* كل تسمية على سطر مستقل */
             margin-top: 10px;
             font-weight: bold;
         }
@@ -115,13 +103,13 @@
         input,
         textarea {
             width: 100%;
-            /* جعل الحقول تملأ العرض */
             padding: 8px;
             margin-top: 5px;
             border: 1px solid #999;
             border-radius: 5px;
         }
 
+        /* زر الإرسال */
         button {
             margin-top: 10px;
             padding: 10px;
@@ -134,6 +122,40 @@
 
         button:hover {
             background-color: #0056b3;
+        }
+
+        /* تحسين العرض على الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header,
+            nav,
+            main,
+            section,
+            article,
+            aside,
+            footer {
+                padding: 10px;
+                margin: 5px;
+                text-align: center;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            form {
+                width: 90%;
+                margin: auto;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+            }
         }
     </style>
 </head>
