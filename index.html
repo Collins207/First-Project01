@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>هيكل موقع دلالي</title>
+    <title>موقعي الدلالي</title>
     <style>
-        /* تحسين التصميم وجعله متجاوبًا مع جميع الأجهزة */
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -20,28 +18,12 @@
             line-height: 1.6;
         }
 
-        header,
-        nav,
-        main,
-        section,
-        article,
-        aside,
-        footer {
-            padding: 15px;
-            margin: 10px;
-            border-radius: 8px;
-            max-width: 100%;
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
-        }
-
         header {
             background: linear-gradient(135deg, #0073e6, #004a99);
             color: white;
             text-align: center;
-            border: none;
+            padding: 15px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            font-size: 18px;
         }
 
         nav {
@@ -49,6 +31,17 @@
             text-align: center;
             padding: 10px;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav button {
+            display: none;
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 5px;
+            border-radius: 5px;
         }
 
         nav ul {
@@ -71,14 +64,6 @@
         nav ul li a:hover {
             background: #007BFF;
             color: white;
-        }
-
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
         }
 
         .container {
@@ -105,63 +90,14 @@
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
         }
 
-        section {
-            background: #eef;
-            border: 1px solid #88a;
-            border-radius: 8px;
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
             padding: 15px;
         }
 
-        article {
-            background: #dde;
-            border: 1px solid #667;
-            border-radius: 8px;
-            padding: 10px;
-        }
-
-        form {
-            background-color: #f0f0ff;
-            padding: 20px;
-            border: 1px solid #999;
-            border-radius: 8px;
-            width: 50%;
-            margin: auto;
-            max-width: 500px;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #999;
-            border-radius: 5px;
-        }
-
-        button {
-            margin-top: 10px;
-            padding: 12px;
-            background: linear-gradient(135deg, #007BFF, #0056b3);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s ease-in-out;
-        }
-
-        button:hover {
-            background: linear-gradient(135deg, #0056b3, #003a80);
-        }
-
-        /* ✅ تحسين التصميم على الهواتف */
+        /* ✅ تحسين التصميم للجوال */
         @media (max-width: 768px) {
             body {
                 font-size: 14px;
@@ -172,16 +108,11 @@
                 align-items: center;
             }
 
-            header,
-            nav,
-            main,
-            section,
-            article,
-            aside,
-            footer {
-                padding: 10px;
-                margin: 5px;
-                text-align: center;
+            nav button {
+                display: block;
+                width: 100%;
+                padding: 12px;
+                font-size: 18px;
             }
 
             nav ul {
@@ -192,73 +123,24 @@
                 border-radius: 8px;
             }
 
-            nav.active ul {
+            nav ul.active {
                 display: flex;
-            }
-
-            nav button {
-                display: block;
-                background: #007BFF;
-                color: white;
-                padding: 10px;
-                border: none;
-                cursor: pointer;
-                margin-bottom: 5px;
-                border-radius: 5px;
             }
 
             form {
                 width: 90%;
-                margin: auto;
             }
 
-            input,
-            textarea {
-                width: 100%;
-            }
-
-            aside {
-                order: 2;
-                width: 100%;
-            }
-
+            aside,
             main {
-                order: 1;
                 width: 100%;
-            }
-
-            section {
-                order: 3;
-                width: 100%;
-            }
-
-            footer {
-                order: 4;
-            }
-        }
-
-        /* ✅ تحسين العرض على الشاشات الكبيرة */
-        @media (min-width: 769px) {
-            .container {
-                display: flex;
-                align-items: flex-start;
-            }
-
-            main {
-                flex: 2;
-                margin-right: 10px;
-            }
-
-            aside {
-                flex: 1;
             }
         }
     </style>
 
     <script>
         function toggleMenu() {
-            var nav = document.querySelector("nav ul");
-            nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
+            document.querySelector("nav ul").classList.toggle("active");
         }
     </script>
 </head>
@@ -282,35 +164,9 @@
 
     <div class="container">
         <main>
-            <section>
-                <h2>قسم المقالات</h2>
-                <article>
-                    <h3>مقال 1</h3>
-                    <p>هذا هو أول مقال في الموقع.</p>
-                </article>
-                <article>
-                    <h3>مقال 2</h3>
-                    <p>هذا هو مقال آخر يمكن قراءته بشكل مستقل.</p>
-                </article>
-            </section>
-
-            <section>
-                <h2>أخبار</h2>
-                <article>
-                    <h3>خبر جديد</h3>
-                    <p>:تمت إضافة كل من
-                    <ul>
-                        <li>"قائمة "الرئيسية</li>
-                        <li>"قائمة "عن الموقع</li>
-                        <li>"قائمة "الخدمات</li>
-                        <li>"قائمة "اتصل بنا</li>
-                    </ul>
-                    </p>
-                </article>
-            </section>
             <section id="home">
                 <h2>الرئيسية</h2>
-                <p>مرحبًا بك في موقعنا! هنا يمكنك معرفة المزيد عن خدماتنا ومقالاتنا.</p>
+                <p>مرحبًا بك في موقعنا!</p>
             </section>
 
             <section id="about">
@@ -326,9 +182,10 @@
                     <li>تحسين أداء المواقع</li>
                 </ul>
             </section>
+
             <section id="contact">
                 <h2>اتصل بنا</h2>
-                <form action="send_email.php" method="post">
+                <form>
                     <label for="name">الاسم:</label>
                     <input type="text" id="name" name="name" required>
 
@@ -345,7 +202,7 @@
 
         <aside>
             <h2>الشريط الجانبي</h2>
-            <p>هنا تجد معلومات إضافية مثل الروابط والإعلانات.</p>
+            <p>هنا تجد معلومات إضافية.</p>
         </aside>
     </div>
 
