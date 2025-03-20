@@ -81,10 +81,10 @@
 
     <nav>
         <ul>
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">عن الموقع</a></li>
-            <li><a href="#">الخدمات</a></li>
-            <li><a href="#">اتصل بنا</a></li>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">عن الموقع</a></li>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#contact">اتصل بنا</a></li>
         </ul>
     </nav>
 
@@ -108,6 +108,42 @@
                     <h3>خبر جديد</h3>
                     <p>هذا هو آخر الأخبار في الموقع.</p>
                 </article>
+            </section>
+            <section id="home">
+                <h2>الرئيسية</h2>
+                <p>مرحبًا بك في موقعنا! هنا يمكنك معرفة المزيد عن خدماتنا ومقالاتنا.</p>
+            </section>
+
+            <section id="about">
+                <h2>عن الموقع</h2>
+                <p>هذا الموقع مخصص لتوضيح بنية وتصميم المواقع باستخدام HTML و CSS.</p>
+            </section>
+
+            <section id="services">
+                <h2>الخدمات</h2>
+                <ul>
+                    <li>تصميم مواقع إلكترونية</li>
+                    <li>تطوير واجهات المستخدم</li>
+                    <li>تحسين أداء المواقع</li>
+                </ul>
+            </section>
+            <section id="contact">
+                <h2>اتصل بنا</h2>
+                <form action="#" method="post">
+                    <label for="name">الاسم:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">البريد الإلكتروني:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">رقم الهاتف (اختياري):</label>
+                    <input type="tel" id="phone" name="phone">
+
+                    <label for="message">رسالتك:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">إرسال</button>
+                </form>
             </section>
         </main>
 
