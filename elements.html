@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Elements</title>
+    <style>
+        /* تحسين شامل لموقعك - أكثر من 500 سطر من الأكواد */
+
+        body {
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #f8f9fa, #e3e3e3);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        aside p {
+            margin: 10px 0;
+            line-height: 1.7;
+            padding: 5px;
+        }
+
+        aside h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        header {
+            background: linear-gradient(to right, #007bff, #00aaff);
+            color: white;
+            text-align: center;
+            padding: 15px 10px;
+            font-size: 1.3rem;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: -10px;
+        }
+
+        .dropdown-menu {
+            border-radius: 8px;
+            /* زوايا ناعمة */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            /* ظل خفيف */
+            padding: 10px;
+            /* تحسين المسافات الداخلية */
+        }
+
+        nav {
+            background-color: #005691;
+            padding: 10px;
+            padding-bottom: 10px;
+            /* لإعطاء مسافة بين القائمة والمحتوى */
+        }
+
+        nav ul {
+            justify-content: center;
+            /* يجعل العناصر في المنتصف */
+            list-style-type: none;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            margin: 0 15px;
+            /* يضيف مسافة بين العناصر */
+        }
+
+        nav ul li a {
+            font-size: 16px;
+            /* تقليل حجم الخط */
+            display: block;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #004080;
+            border-radius: 5px;
+        }
+
+        /* إخفاء القوائم المنسدلة افتراضيًا */
+        nav ul li .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #003f6b;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            list-style: none;
+            padding: 0;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li .dropdown li {
+            width: 100%;
+        }
+
+        nav ul li .dropdown li a {
+            padding: 10px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li .dropdown li a:hover {
+            background-color: #002a4d;
+        }
+
+        /* عند مرور الماوس، تظهر القائمة المنسدلة */
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1100px;
+            /* تحديد أقصى عرض للمحتوى */
+            margin: auto;
+            margin-top: 15px;
+            /* لضمان أن كل شيء أسفل الـ nav */
+        }
+
+        main {
+            margin-top: 50px;
+            /* اجعل القيمة مناسبة حسب التصميم */
+            margin-left: 70px;
+            width: 90%;
+            background: #f9f9f9;
+            /* لون خفيف للخلفية للوضوح */
+            padding: 20px;
+            border-radius: 8px;
+            /* حواف دائرية لشكله */
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        main:hover {
+            transform: scale(1.02);
+        }
+
+        aside {
+            width: 90.5%;
+            /* تقليل العرض ليكون أكثر تناسقًا */
+            padding: 15px;
+            background: #f9f9f9;
+            /* لون خفيف للخلفية للوضوح */
+            border-radius: 8px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            /* اجعل القيمة مناسبة حسب التصميم */
+            margin-left: 70px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        aside:hover {
+            transform: scale(1.02);
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 5px solid #007bff;
+            background: #f9f9f9;
+            transition: background 0.3s ease-in-out;
+        }
+
+        section:hover {
+            background: #e3e3e3;
+        }
+
+        article {
+            background: #dff0ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        article:hover {
+            transform: scale(1.02);
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .contact-form {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .contact-form h3 {
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .send-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .send-button:hover {
+            background: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        p,
+        td {
+            font-size: 18px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: right;
+            /* محاذاة للنص العربي */
+            border: 1px solid #ccc;
+        }
+
+        th {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .example {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        code {
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            background: #f4f4f4;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #005f99;
+            color: white;
+            margin-top: 20px;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* تأثيرات إضافية للأيقونات */
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        nav ul li a:hover {
+            animation: bounce 0.5s;
+        }
+
+        /* تحسين الاستجابة للجوال */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main,
+            aside {
+                width: 90%;
+            }
+        }
+
+        /* تأثيرات خلفية متحركة */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.2) 20%, rgba(0, 0, 0, 0) 80%);
+            z-index: -1;
+            opacity: 0.5;
+            animation: background-fade 10s infinite alternate;
+        }
+
+        @keyframes background-fade {
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <h1>HTML Elements</h1>
+        <p>Explore the fundamental building blocks of HTML</p>
+    </header>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#Paragraph &lt;p&gt;">Paragraph &lt;p&gt;</a></li>
+            <li><a href="#Headings &lt;h1&gt;-&lt;h6&gt;">Headings &lt;h1&gt;-&lt;h6&gt;</a></li>
+            <li><a href="#Anchor &lt;a&gt;">Anchor &lt;a&gt;</a></li>
+            <li><a href="#Span &lt;span&gt;">Span &lt;span&gt;</a></li>
+            <li><a href="#Division &lt;div&gt;">Division &lt;div&gt;</a></li>
+            <li><a href="#Fact">Random Fact</a></li>
+        </ul>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main>
+        <section id="Paragraph &lt;p&gt;">
+            <h2>&lt;p&gt; - الفقرة</h2>
+            <p>يستخدم العنصر <code>&lt;p&gt;</code> لإنشاء فقرات نصية.</p>
+            <table>
+                <tr>
+                    <th>العنصر</th>
+                    <th>الوصف</th>
+                    <th>مثال</th>
+                </tr>
+                <tr>
+                    <td>&lt;p&gt;</td>
+                    <td>يستخدم لكتابة نصوص داخل فقرات</td>
+                    <td><code>&lt;p&gt;هذه فقرة&lt;/p&gt;</code></td>
+                </tr>
+            </table>
+            <div class="example-output">هذه فقرة</div>
+        </section>
+
+        <section id="Headings &lt;h1&gt;-&lt;h6&gt;">
+            <h2>&lt;h1&gt; - العناوين</h2>
+            <p>تستخدم العناوين <code>&lt;h1&gt;</code> إلى <code>&lt;h6&gt;</code> لإنشاء عناوين بمستويات مختلفة.</p>
+            <table>
+                <tr>
+                    <th>العنصر</th>
+                    <th>الوصف</th>
+                    <th>مثال</th>
+                </tr>
+                <tr>
+                    <td>&lt;h1&gt;</td>
+                    <td>يستخدم لإنشاء عنوان رئيسي</td>
+                    <td><code>&lt;h1&gt;عنوان رئيسي&lt;/h1&gt;</code></td>
+                </tr>
+            </table>
+            <div class="example-output">
+                <h1>عنوان رئيسي</h1>
+            </div>
+        </section>
+
+        <section id="Anchor &lt;a&gt;">
+            <h2>&lt;a&gt; - الروابط</h2>
+            <p>يستخدم العنصر <code>&lt;a&gt;</code> لإنشاء روابط تشعبية للانتقال إلى صفحات أخرى.</p>
+            <table>
+                <tr>
+                    <th>العنصر</th>
+                    <th>الوصف</th>
+                    <th>مثال</th>
+                </tr>
+                <tr>
+                    <td>&lt;a&gt;</td>
+                    <td>يستخدم لإنشاء رابط لموقع أو صفحة</td>
+                    <td><code>&lt;a href="https://www.example.com"&gt;اذهب للموقع&lt;/a&gt;</code></td>
+                </tr>
+            </table>
+            <div class="example-output"><a href="https://www.example.com">اذهب للموقع</a></div>
+        </section>
+
+        <section id="Span &lt;span&gt;">
+            <h2>&lt;span&gt; - العنصر النصي</h2>
+            <p>يستخدم العنصر <code>&lt;span&gt;</code> لتنسيق جزء صغير من النص داخل عنصر آخر.</p>
+            <table>
+                <tr>
+                    <th>العنصر</th>
+                    <th>الوصف</th>
+                    <th>مثال</th>
+                </tr>
+                <tr>
+                    <td>&lt;span&gt;</td>
+                    <td>يستخدم لتنسيق جزء من النص</td>
+                    <td><code>&lt;p&gt;هذا نص &lt;span style="color:red"&gt;ملون&lt;/span&gt;&lt;/p&gt;</code></td>
+                </tr>
+            </table>
+            <div class="example-output">
+                <p>هذا نص <span style="color:red">ملون</span></p>
+            </div>
+        </section>
+
+        <section id="Division &lt;div&gt;">
+            <h2>&lt;div&gt; - التقسيم</h2>
+            <p>يستخدم العنصر <code>&lt;div&gt;</code> لتقسيم المحتوى إلى أقسام قابلة للتنسيق.</p>
+            <table>
+                <tr>
+                    <th>العنصر</th>
+                    <th>الوصف</th>
+                    <th>مثال</th>
+                </tr>
+                <tr>
+                    <td>&lt;div&gt;</td>
+                    <td>يستخدم لتجميع عناصر داخل كتلة واحدة</td>
+                    <td><code>&lt;div style="background-color: lightgray; padding:10px;"&gt;محتوى داخل div&lt;/div&gt;</code>
+                    </td>
+                </tr>
+            </table>
+            <div class="example-output" style="background-color: lightgray; padding:10px;">محتوى داخل div</div>
+        </section>
+
+    </main>
+
+</body>
+
+<!-- الشريط الجانبي -->
+<aside id="Fact">
+    <h2>Did You Know?</h2>
+    <p>HTML stands for HyperText Markup Language and is the foundation of web development.</p>
+</aside>
+
+<!-- الفوتر -->
+<footer>
+    <p>&copy; 2025 All rights reserved. | <a href="contact.html">Contact Us</a></p>
+</footer>
+
+</body>
+
+</html>
