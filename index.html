@@ -139,6 +139,7 @@
         .container {
             width: 100%;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             max-width: 1600px;
             /* تحديد أقصى عرض للمحتوى */
@@ -333,7 +334,7 @@
         }
 
         /* تحسين الاستجابة للجوال */
-        @media screen and (max-width: 3072px) {
+        @media screen and (max-width: 768px) {
             .nav-links {
                 display: none;
                 /* إخفاء القائمة */
@@ -360,10 +361,15 @@
                 padding: 5px 10px;
             }
         }
-        @media (max-width: 480px) {
-    body {
-        font-size: 14px;
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
     }
+    .content {
+        width: 100%;
+    }
+}
 
     h1 {
         font-size: 18px;
