@@ -7,12 +7,17 @@
     <title>Home - HTML Blog</title>
     <style>
         /* تحسين شامل لموقعك - أكثر من 500 سطر من الأكواد */
+        * {
+            box-sizing: border-box;
+        }
 
         body {
+            max-width: 100%;
             font-family: 'Cairo', sans-serif;
             background: linear-gradient(to bottom, #f8f9fa, #e3e3e3);
             margin: 0;
             padding: 0;
+            overflow: auto;
             overflow-x: hidden;
         }
 
@@ -31,9 +36,11 @@
             background: linear-gradient(to right, #007bff, #00aaff);
             color: white;
             text-align: center;
+            max-width: 100%;
             padding: 15px 10px;
             font-size: 1.3rem;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: auto;
         }
 
         header h1 {
@@ -57,8 +64,10 @@
 
         nav {
             background-color: #005691;
+            max-width: 100%;
             padding: 10px;
             padding-bottom: 10px;
+            overflow: auto;
             /* لإعطاء مسافة بين القائمة والمحتوى */
         }
 
@@ -138,16 +147,20 @@
 
         .container {
             width: 100%;
+            max-width: 100%;
             display: flex;
             justify-content: space-between;
+            flex-direction: row;
             max-width: 1600px;
             /* تحديد أقصى عرض للمحتوى */
             margin: 0 auto;
             margin-top: 15px;
+            overflow: auto;
             /* لضمان أن كل شيء أسفل الـ nav */
         }
 
         main {
+            max-width: 100%;
             margin-top: 20px;
             /* اجعل القيمة مناسبة حسب التصميم */
             width: 100%;
@@ -155,9 +168,15 @@
             /* لون خفيف للخلفية للوضوح */
             padding: 20px;
             border-radius: 8px;
+            overflow: auto;
             /* حواف دائرية لشكله */
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
+        }
+
+        .main-content {
+            flex: 3;
+            /* يأخذ مساحة أكبر */
         }
 
         main:hover {
@@ -165,6 +184,9 @@
         }
 
         aside {
+            flex: 1;
+            flex-basis: 25%;
+            max-width: 100%;
             width: 15%;
             /* تقليل العرض ليكون أكثر تناسقًا */
             padding: 15px;
@@ -175,7 +197,9 @@
             margin-top: 20px;
             /* اجعل القيمة مناسبة حسب التصميم */
             margin-left: 30px;
+            overflow: hidden;
             transition: transform 0.3s ease-in-out;
+            display: block !important;
         }
 
         aside:hover {
@@ -183,11 +207,13 @@
         }
 
         section {
+            max-width: 100%;
             margin-bottom: 30px;
             padding: 20px;
             border-radius: 5px;
             border-left: 5px solid #007bff;
             background: #f9f9f9;
+            overflow: hidden;
             transition: background 0.3s ease-in-out;
         }
 
@@ -196,11 +222,13 @@
         }
 
         article {
+            max-width: 100%;
             background: #dff0ff;
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 15px;
             transition: transform 0.3s ease-in-out;
+            overflow: hidden;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
@@ -307,11 +335,13 @@
 
 
         footer {
+            max-width: 100%;
             text-align: center;
             padding: 10px;
             background: #005f99;
             color: white;
             margin-top: 20px;
+            overflow: hidden;
             box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -334,9 +364,44 @@
 
         /* تحسين الاستجابة للجوال */
         @media screen and (max-width: 768px) {
+
+            .container {
+                flex-direction: column;
+                /* خلي العناصر بجانب بعض */
+            }
+
+            .main {
+                flex: 3;
+                /* ياخد مساحة أكبر */
+            }
+
+            .main-content {
+                order: 1;
+                /* يجعل المحتوى الرئيسي فوق */
+            }
+
+            aside {
+                display: block !important;
+                width: 100% !important;
+                max-width: 400px !important;
+                margin: 10px auto !important;
+                padding: 15px !important;
+                background-color: #f8f9fa;
+                border-radius: 10px;
+                flex-grow: 1 !important;
+            }
+
+            aside p,
+            aside ul,
+            aside li {
+                font-size: 14px !important;
+                /* تقليل حجم النص */
+                text-align: center !important;
+                /* توسيط النص */
+            }
+
             .nav-links {
                 display: none;
-                /* إخفاء القائمة */
                 flex-direction: column;
                 position: absolute;
                 top: 60px;
@@ -350,14 +415,19 @@
 
             .nav-links.active {
                 display: flex;
-                /* إظهار القائمة عند الضغط */
             }
 
             .menu-toggle {
                 display: block;
                 background-color: white;
+                border: none;
+                font-size: 24px;
+                padding: 10px;
                 border-radius: 5px;
-                padding: 5px 10px;
+                cursor: pointer;
+                position: absolute;
+                top: 15px;
+                right: 15px;
             }
         }
 
@@ -405,6 +475,7 @@
         <p>Your ultimate guide to mastering HTML elements, attributes, and best practices.</p>
     </header>
 
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <nav>
         <ul class="nav-links">
             <li><a href="index.html">Home</a>
@@ -512,11 +583,11 @@
             <section id="latest-articles">
                 <h2>أحدث المقالات</h2>
                 <article>
-                    <h3><a href="https://www.closetag.com/tutorials/html/html-semantic-elements#:~:text=semantic%20elements%20%D8%A7%D9%84%D8%B9%D9%86%D8%A7%D8%B5%D8%B1%20%D8%A7%D9%84%D8%AF%D9%84%D8%A7%D9%84%D9%8A%D8%A9%20%D9%87%D9%8A%20%D8%B9%D9%86%D8%A7%D8%B5%D8%B1%20%D8%A3%D9%8F%D8%B6%D9%8A%D9%81%D8%AA%20%D8%AD%D8%AF%D9%8A%D8%AB%D8%A7%D9%8B,%D9%85%D9%86%20%D8%A7%D9%84%D8%B9%D9%86%D8%A7%D8%B5%D8%B1%20semantic%20%D8%A7%D9%84%D8%AF%D9%84%D8%A7%D9%84%D9%8A%D8%A9%D8%8C%20%D9%85%D8%AB%D9%84%20header%20%D9%88%20footer." target="_blank">فهم العناصر الدلالية في HTML5</a></h3>
+                    <h3><a href="#">فهم العناصر الدلالية في HTML5</a></h3>
                     <p>كيف تساعدك العناصر الدلالية في تحسين السيو وتجربة المستخدم؟</p>
                 </article>
                 <article>
-                    <h3><a href="https://web.dev/learn/forms/welcome?hl=ar#:~:text=%D8%B3%D8%AA%D8%AA%D8%B9%D8%B1%D9%81%20%D8%B9%D9%84%D9%89%20%D9%83%D9%8A%D9%81%D9%8A%D8%A9%20%D8%A5%D9%86%D8%B4%D8%A7%D8%A1%20%D9%86%D9%85%D9%88%D8%B0%D8%AC%20HTML%20%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%8C%20%D9%88%D8%B9%D9%86,%D9%85%D9%84%D9%8A%D8%A6%D8%A9%20%D8%A8%D8%B9%D8%B1%D9%88%D8%B6%20%D8%AA%D9%88%D8%B6%D9%8A%D8%AD%D9%8A%D8%A9%20%D8%AA%D9%81%D8%A7%D8%B9%D9%84%D9%8A%D8%A9%20%D9%88%D8%AA%D9%82%D9%8A%D9%8A%D9%85%D8%A7%D8%AA%20%D8%B0%D8%A7%D8%AA%D9%8A%D8%A9%20%D9%84%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%20%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%D9%83." target="_blank">أفضل الممارسات لإنشاء النماذج في HTML</a></h3>
+                    <h3><a href="#">أفضل الممارسات لإنشاء النماذج في HTML</a></h3>
                     <p>تعرف على كيفية تصميم نماذج فعالة وسهلة الاستخدام.</p>
                 </article>
             </section>
@@ -530,7 +601,7 @@
             <section id="infographics" class="diagram-container">
                 <h2>مخططات توضيحية</h2>
                 <figure>
-                    <img src="https://www.ionos.mx/digitalguide/fileadmin/DigitalGuide/Schaubilder/representacion-grafica-de-un-dom-tree.png" alt="هيكل صفحة HTML" width="610" height="308">
+                    <img src="document-object-tree-model.jpg" alt="هيكل صفحة HTML" width="610" height="308">
                     <figcaption class="caption">المخطط الأساسي لهيكلة مستند HTML.</figcaption>
                 </figure>
             </section>
@@ -550,10 +621,10 @@
             <section id="testimonials">
                 <h2>آراء المستخدمين</h2>
                 <article>
-                    <p>..لا يوجد مستخدمون بعد</p>
+                    <p>"هذه المدونة ساعدتني كثيرًا في فهم أساسيات HTML بطريقة سهلة وبسيطة!" – أحمد</p>
                 </article>
                 <article>
-                    <p>..لا يوجد مستخدمون بعد</p>
+                    <p>"أفضل مكان لتعلم HTML، الدروس واضحة والأمثلة عملية جدًا." – سارة</p>
                 </article>
             </section>
 
